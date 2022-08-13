@@ -8,4 +8,5 @@ COPY \
 WORKDIR /root/
 RUN gem install bundler
 RUN bundle install
-RUN ruby /root/main.rb ${1} ${2} ${3}
+
+ENTRYPOINT ["ruby", "/root/main.rb"]
