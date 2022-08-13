@@ -5,6 +5,7 @@ COPY \
     Gemfile \
     /root/
 
+WORKDIR /root/
 RUN gem install bundler
 RUN bundle install
 RUN ruby /root/main.rb ${1} ${2} ${3}
