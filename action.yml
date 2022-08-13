@@ -1,18 +1,27 @@
 name: JSON Fill ERB Action
 description: Render an erb template with the contents of a json file
 author: Luke Weiler
-inputs:
-  json_path:
-    description: The path to the json file used as data for the erb
-    required: true
-  erb_path:
-    description: The path to the erb file to be rendered
-    required: true
-  output_path:
-    description: The path to where the output file should be generated to
-runs:
-  using: "ruby"
-  main: "main.rb"
 branding:
   color: "green"
   icon: "package"
+inputs:
+  json-path:
+    description: The path to the json file used as data for the erb
+    required: true
+  erb-path:
+    description: The path to the erb file to be rendered
+    required: true
+  out-path:
+    description: The path to where the output file should be generated to
+runs:
+  using: "composite"
+  steps:
+    - id: setup-ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: "2.7.1"
+        bundler: "2.1.4"
+        bundler-cache: true
+    - id: run-build
+      shell: bash
+      run: ruby main.rb {{ inputs.json-path }} {{ inputs.erb-path }} {{ inputs.out-path }}
