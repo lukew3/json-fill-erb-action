@@ -5,13 +5,13 @@ branding:
   color: "green"
   icon: "package"
 inputs:
-  json-path:
+  json_path:
     description: The path to the json file used as data for the erb
     required: true
-  erb-path:
+  erb_path:
     description: The path to the erb file to be rendered
     required: true
-  out-path:
+  out_path:
     description: The path to where the output file should be generated to
 runs:
   using: "composite"
@@ -24,4 +24,4 @@ runs:
         bundler-cache: true
     - id: run-build
       shell: bash
-      run: ruby main.rb {{ inputs.json-path }} {{ inputs.erb-path }} {{ inputs.out-path }}
+      run: ruby main.rb {{ inputs.json_path }} {{ inputs.erb_path }} {{ inputs.out_path }}
