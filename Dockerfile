@@ -1,7 +1,6 @@
 FROM ruby:2.7.0
 
 COPY \
-    entrypoint.sh \
     main.rb \
     Gemfile \
     /root/
