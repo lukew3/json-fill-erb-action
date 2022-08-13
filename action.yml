@@ -13,15 +13,11 @@ inputs:
     required: true
   out_path:
     description: The path to where the output file should be generated to
+    required: true
 runs:
-  using: "composite"
-  steps:
-    - id: setup-ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: "2.7.1"
-        bundler: "2.1.4"
-        bundler-cache: true
-    - id: run-build
-      shell: bash
-      run: ruby main.rb {{ inputs.json_path }} {{ inputs.erb_path }} {{ inputs.out_path }}
+  using: "docker"
+  image: Dockerfile
+  args:
+    - ${{ inputs.json_path }}
+    - ${{ inputs.erb_path }}
+    - ${{ inputs.out_path }}
