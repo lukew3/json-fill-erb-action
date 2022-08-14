@@ -13,7 +13,6 @@ inputs:
     required: true
   out_path:
     description: The path to where the output file should be generated to
-    required: true
 runs:
   using: "docker"
   image: Dockerfile
