@@ -5,7 +5,7 @@ Each value in the top level of the provided json object will be it's own variabl
 
 See https://github.com/lukew3/resume for an example of how this can be used.
 
-Usage:
+### Usage
 Add the following step to your github action:
 ```
 uses: lukew3/json-fill-erb-action@main
