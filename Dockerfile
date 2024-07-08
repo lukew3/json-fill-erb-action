@@ -1,4 +1,4 @@
-FROM ruby:2.7.0
+FROM ruby:3.3.0
 
 COPY main.rb Gemfile /root/
 
